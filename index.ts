@@ -28,6 +28,7 @@ export class Key {
   sm: string = ""; // switch mount
   sb: string = ""; // switch brand
   st: string = ""; // switch type
+  originalText:string="";// 原始的文本.
 }
 
 export class KeyboardMetadata {
@@ -119,7 +120,7 @@ export module Serial {
               newKey.height2 === 0 ? current.height : current.height2;
             newKey.labels = reorderLabelsIn(item.split("\n"), align);
             newKey.textSize = reorderLabelsIn(newKey.textSize, align);
-
+            newKey.originalText = item;
             // Clean up the data
             for (var i = 0; i < 12; ++i) {
               if (!newKey.labels[i]) {
